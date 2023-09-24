@@ -12,10 +12,10 @@ there is 4 main pahses
 frist we start with inventory system and kind of going from there
 and i figure out what i mean with inventory system
 
+---------
 ## inventory system 
 - Loading and unloading stock
 - Transferring stock between different locations
 - Generating work orders for inventory-related assignments
 - Verifying and confirming these work orders
 - Managing logistics, including ensuring that cars are filled efficiently to minimize transport costs.
-
