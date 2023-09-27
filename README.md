@@ -13,7 +13,7 @@ frist we start with inventory system and kind of going from there
 and i figure out what i mean with inventory system
 
 ---------
-## inventory system 
+## inventory system business logic 
 - Loading and unloading stock
 - Transferring stock between different locations
 - Generating work orders for inventory-related assignments
@@ -74,5 +74,7 @@ and i figure out what i mean with inventory system
   - Implement security measures to protect sensitive inventory data.
   - Regularly backup the database to prevent data loss.
   - 
-**1. build the inventory sys database schema**
+## inventory system work flow 
+**1. build the inventory database schema:**
+
 ![image](https://github.com/MhmedRjb/simpleERP/assets/72052305/6558b616-89d8-4a34-8e70-e8924cfc7777)
