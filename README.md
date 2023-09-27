@@ -73,3 +73,4 @@ and i figure out what i mean with inventory system
 
   - Implement security measures to protect sensitive inventory data.
   - Regularly backup the database to prevent data loss.
+![image](https://github.com/MhmedRjb/simpleERP/assets/72052305/6558b616-89d8-4a34-8e70-e8924cfc7777)
