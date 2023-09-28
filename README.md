@@ -1,3 +1,12 @@
+
+### This project is currently in the development phase.
+- I am diligently working on the foundational aspects of it. In the coming days, I will ensure to create meaningful and easy-to-follow issues to facilitate collaboration.
+- If you are interested in learning or enhancing your skills in SQL, MySQL, HTML, CSS, Python, the Flask framework, and have an interest in ERP systems, this project could be an excellent opportunity for you.
+- I am committed to making contributions accessible by creating well-defined issues. Your generous contributions are always welcome. Let’s learn and grow together in this exciting journey!
+
+
+
+
 # simpleERP
 A user-friendly ERP system built with Flask and MariaDB, featuring modules for inventory, accounting, POS, and business analytics. Contributions from all levels are welcome and greatly appreciated!
 
