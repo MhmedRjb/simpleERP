@@ -6,7 +6,7 @@ function submitForm(formId, endpoint) {
         let formData = {};
         for (let input of this.elements) {
             if (input.id) {
-                formData[input.id] = input.value;
+                  formData[input.id] = input.value;
             }
         }
 
