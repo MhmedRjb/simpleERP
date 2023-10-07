@@ -3,12 +3,18 @@ CREATE TABLE `warehouse`(
     `location` CHAR(255) NOT NULL,
     `name` CHAR(255) NOT NULL
 );
-CREATE TABLE `item`(
-    `item_id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT INDEX,
-    `name` CHAR(255) NOT NULL COMMENT 'like cheese',
-    `type` CHAR(255) NOT NULL COMMENT 'like fresh or aged',
-    `dimension` CHAR(255) NOT NULL COMMENT '15x15x12'
+-- This table stores information about items in the ERP system.
+
+CREATE TABLE item (
+    item_id INT PRIMARY KEY,        -- Unique identifier for each item.
+    name VARCHAR(255),             -- Name or title of the item.
+    type VARCHAR(255),             -- Type or category of the item.
+    dimension VARCHAR(255),        -- Dimensions or size of the item.
+    date_created DATE,             -- Date when the item was originally created.
+    date_added DATE,               -- Date when the item was added to the ERP system.
+    identifier VARCHAR(255)        -- Text-based unique identifier for the item.
 );
+
 CREATE TABLE `transactions`(
     `transactions_id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `transactions_id_row` BIGINT NOT NULL COMMENT 'like in transactions_id 1 there is 1,2,3,4',
