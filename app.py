@@ -4,6 +4,12 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
+    #print helow world
+    return 'Hello World!'
+
+@app.route('/record_transaction', methods=['GET'])
+def get_transaction():
+    # Handle the GET request here
     return render_template('transaction_form.html')
 
 @app.route('/record_transaction', methods=['POST'])
@@ -15,7 +21,9 @@ def record_transaction():
 
     # Respond with a JSON message (for testing)
     response = {'message': 'Transaction recorded successfully'}
-    return jsonify(response), 200
+    
+    # Render the transaction_form.html
+    return response, 200
 
 if __name__ == '__main__':
     app.run(debug=True)

@@ -10,20 +10,28 @@
     <form id="transaction-form">
         <table>
             <tr>
+                <th>Source Warehouse </th>
+                <td><input type="text" id="text" name="source_warehouse_id" required></td>
+                <th>Destination Warehouse:</th>
+                <td><input type="text" id="text" name="destination_warehouse_id" required></td>
+                <th>Date:</th>
+                <td><input type="date" id="date" name="date" required></td>
+
+        </table>
+
+        <h2>Items:</h2>
+        <table id="items-table">
+            <tr>
                 <th>Item ID:</th>
-                <th>Source Warehouse ID:</th>
-                <th>Destination Warehouse ID:</th>
                 <th>Quantity Numeric:</th>
                 <th>Quantity Weight:</th>
-                <th>Date:</th>
+                <th>Action</th>
             </tr>
             <tr>
-                <td><input type="number" id="item_id" name="item_id" required></td>
-                <td><input type="number" id="source_warehouse_id" name="source_warehouse_id" required></td>
-                <td><input type="number" id="destination_warehouse_id" name="destination_warehouse_id" required></td>
-                <td><input type="number" id="quantity_numeric" name="quantity_numeric" required></td>
-                <td><input type="number" step=0.1 id="quantity_weight" name="quantity_weight" required></td>
-                <td><input type="date" id="date" name="date" required></td>
+                <td><input type="number" class="item-id" name="item_id" required></td>
+                <td><input type="number" class="quantity-numeric" name="quantity_numeric" required></td>
+                <td><input type="number" class="quantity-weight" step="0.1" name="quantity_weight" required></td>
+                <td><button type="button" onclick="addRow()">Add Row</button></td>
             </tr>
         </table>
     
@@ -31,13 +39,29 @@
     
     </form>
     
-        
-    
     <div id="response"></div>
 
-    <script src="/static/js/formHandler.js"></script>
-    <script src="/static/js/dateistoday.js"></script>
-    <script > submitForm("transaction-form", "/record_transaction");
-    </script>    
+    <script src="../static/js/formHandler.js"></script>
+    <script src="../static/js/dateistoday.js"></script>
+    <script>
+        submitForm("transaction-form", "/record_transaction");
+
+        function addRow() {
+            const table = document.getElementById("items-table");
+            const newRow = document.createElement("tr");
+            newRow.innerHTML = `
+                <td><input type="number" class="item-id" name="item_id" required></td>
+                <td><input type="number" class="quantity-numeric" name="quantity_numeric" required></td>
+                <td><input type="number" class="quantity-weight" step="0.1" name="quantity_weight" required></td>
+                <td><button type="button" onclick="removeRow(this)">Remove</button></td>
+            `;
+            table.appendChild(newRow);
+        }
+
+        function removeRow(button) {
+            const row = button.parentElement.parentElement;
+            row.remove();
+        }
+    </script>
 </body>
 </html>

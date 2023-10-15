@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transaction Form</title>
+</head>
+<body>
+    <h1>Transaction Form</h1>
+    <form id="transaction-form">
+        <table>
+            <tr>
+                <th>Item ID:</th>
+                <th>Source Warehouse ID:</th>
+                <th>Destination Warehouse ID:</th>
+                <th>Quantity Numeric:</th>
+                <th>Quantity Weight:</th>
+                <th>Date:</th>
+            </tr>
+            <tr>
+                <td><input type="number" id="item_id" name="item_id" required></td>
+                <td><input type="number" id="source_warehouse_id" name="source_warehouse_id" required></td>
+                <td><input type="number" id="destination_warehouse_id" name="destination_warehouse_id" required></td>
+                <td><input type="number" id="quantity_numeric" name="quantity_numeric" required></td>
+                <td><input type="number" step=0.1 id="quantity_weight" name="quantity_weight" required></td>
+                <td><input type="date" id="date" name="date" required></td>
+            </tr>
+        </table>
+    
+        <button type="submit">Submit Transaction</button>
+    
+    </form>
+    
+        
+    
+    <div id="response"></div>
+
+    <script src="../static/js/formHandler.js"></script>
+    <script src="../static/js/dateistoday.js"></script>
+    <script > submitForm("transaction-form", "/record_transaction");
+    </script>    
+</body>
+</html>
