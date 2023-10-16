@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transaction Form</title>
+</head>
+<body>
+    <h1>Transaction Form</h1>
+    <form id="transaction-form">
+        <table>
+            <tr>
+                <th>item_name</th>
+                <td><input type="text" id="item_name" name="source_warehouse_id" required></td>
+
+                <th>type</th>
+                <td><input type="text" id="type" name="destination_warehouse_id" required></td>
+
+                <th>dimension</th>
+                <td><input type="text" id="dimension" name="dimension" required></td>
+
+                <th>date_created</th>
+                <td><input type="date" id="date_created" name="date_created" required></td>
+                <th>date_added</th>
+                <td><input type="date" id="date_added" name="date_added" required></td>
+                <th>identifier</th>
+                <td><input type="text" id="identifier" name="identifier" required></td>
+
+        </table>
+    
+        <button type="submit">Submit Transaction</button>
+    
+    </form>
+    
+    <div id="response"></div>
+    <script src="../static/js/formHandler.js"></script>
+    <script src="../static/js/dateistoday.js"></script>
+    <script > submitForm("transaction-form", "/add_item");
+    </script>    
+
+<script>
+    // Set the default value of the "date_added" input field to today's date
+    document.getElementById('date_added').valueAsDate = new Date();
+  </script>
+  
+
+</body>
+</html>

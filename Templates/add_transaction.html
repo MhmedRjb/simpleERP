@@ -11,9 +11,9 @@
         <table>
             <tr>
                 <th>Source Warehouse </th>
-                <td><input type="text" id="text" name="source_warehouse_id" required></td>
+                <td><input type="text" id="source_warehouse_id" name="source_warehouse_id" required></td>
                 <th>Destination Warehouse:</th>
-                <td><input type="text" id="text" name="destination_warehouse_id" required></td>
+                <td><input type="text" id="destination_warehouse_id" name="destination_warehouse_id" required></td>
                 <th>Date:</th>
                 <td><input type="date" id="date" name="date" required></td>
 
@@ -28,7 +28,7 @@
                 <th>Action</th>
             </tr>
             <tr>
-                <td><input type="number" class="item-id" name="item_id" required></td>
+                <td><input type="text" class="item-id" name="item_id" required></td>
                 <td><input type="number" class="quantity-numeric" name="quantity_numeric" required></td>
                 <td><input type="number" class="quantity-weight" step="0.1" name="quantity_weight" required></td>
                 <td><button type="button" onclick="addRow()">Add Row</button></td>
@@ -43,25 +43,12 @@
 
     <script src="../static/js/formHandler.js"></script>
     <script src="../static/js/dateistoday.js"></script>
+    <script src="../static/js/addtransaction_dynamicrows.js"></script>
+    
     <script>
         submitForm("transaction-form", "/record_transaction");
-
-        function addRow() {
-            const table = document.getElementById("items-table");
-            const newRow = document.createElement("tr");
-            newRow.innerHTML = `
-                <td><input type="number" class="item-id" name="item_id" required></td>
-                <td><input type="number" class="quantity-numeric" name="quantity_numeric" required></td>
-                <td><input type="number" class="quantity-weight" step="0.1" name="quantity_weight" required></td>
-                <td><button type="button" onclick="removeRow(this)">Remove</button></td>
-            `;
-            table.appendChild(newRow);
-        }
-
-        function removeRow(button) {
-            const row = button.parentElement.parentElement;
-            row.remove();
-        }
     </script>
+
+    
 </body>
 </html>
