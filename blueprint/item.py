@@ -6,7 +6,7 @@ item = Blueprint('item', __name__)
 # Route to display the form for adding an item
 @item.route('/add_item', methods=['GET'])
 def get_item():
-    return render_template('add_item.html')
+    return render_template('additem.html')
 
 # Route to record a new item
 @item.route('/add_item', methods=['POST'])

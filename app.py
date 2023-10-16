@@ -7,7 +7,7 @@ app.register_blueprint(item)
 @app.route('/record_transaction', methods=['GET'])
 def get_transaction():
     # Handle the GET request here
-    return render_template('add_transaction.html')
+    return render_template('addtransaction.html')
 
 @app.route('/record_transaction', methods=['POST'])
 def record_transaction():
