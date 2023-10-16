@@ -11,7 +11,12 @@ def index():
     #print helow world
     return 'Hello World!'
 
+@app.route('/health', methods=['GET'])
+def health_check():
+    # Add any additional checks to verify the application's health.
+    # You can check the database connection, external services, etc.
+    return "OK", 200
 
 
 if __name__ == '__main__':
-    app.run( port=8080, debug=True)
+    app.run(host='0.0.0.0', port=80)
