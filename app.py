@@ -1,6 +1,6 @@
 from flask import Flask, request, render_template, jsonify , Blueprint
 from blueprint.item import item
-from blueprint.transaction import transaction
+# from blueprint.transaction import transaction
 app = Flask(__name__, template_folder='templates', static_folder='static')
 
 app.register_blueprint(item)
