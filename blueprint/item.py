@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request, jsonify
-from app import db
+# from app import db
 
 item = Blueprint('item', __name__)
 
@@ -21,20 +21,20 @@ def record_item():
 # Route to remove an item
 
 
-class Item(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(50), nullable=False)
-    price = db.Column(db.Float, nullable=False)
+# class Item(db.Model):
+#     id = db.Column(db.Integer, primary_key=True)
+#     name = db.Column(db.String(50), nullable=False)
+#     price = db.Column(db.Float, nullable=False)
 
-    def __repr__(self):
-        return f"Item(id={self.id}, name='{self.name}', price={self.price})"
+#     def __repr__(self):
+#         return f"Item(id={self.id}, name='{self.name}', price={self.price})"
 
 # Route to remove an item
 @item.route('/remove_item/<int:item_id>', methods=['DELETE'])
 def remove_item(item_id):
-    item = Item.query.get_or_404(item_id)
-    db.session.delete(item)
-    db.session.commit()
+    # item = Item.query.get_or_404(item_id)
+    # db.session.delete(item)
+    # db.session.commit()
 
     response = {'message': f'Item with ID {item_id} removed successfully'}
     return jsonify(response), 200
