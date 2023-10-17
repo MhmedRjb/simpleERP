@@ -10,4 +10,4 @@ __pycache__/
 
 
 # Ignore all .env files in the repo
-```
+.env
