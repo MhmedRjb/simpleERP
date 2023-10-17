@@ -79,7 +79,7 @@ def health_check():
 #     cursor.execute("SELECT * FROM my_table")
 #     result = cursor.fetchall()
 
-#     return render_template('my_table.html', data=result)
+#     return render_template('mytable.html', data=result)
 
 
 
