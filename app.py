@@ -1,45 +1,54 @@
 from flask import Flask, request, render_template, jsonify , Blueprint
 from blueprint.item import item
 import mysql.connector
+from flaskext.mysql import MySQL
+
+mysql = MySQL()
+
+# MySQL configurations
+
+# config = {
+#   'user': 'he',
+#   'password': 'AVNS_YbysylwEM8xq2ycbVfl',
+#   'host': 'db-mysql-nyc3-08709-do-user-14592966-0.b.db.ondigitalocean.com',
+#   'port': '25060',
+#   'database': 'defaultdb',
+#   'ssl_disabled': 'True',
+# }
+
+# # Connect to the database
+# db = mysql.connector.connect(**config)
 
 
 
-config = {
-  'user': 'he',
-  'password': 'AVNS_YbysylwEM8xq2ycbVfl',
-  'host': 'db-mysql-nyc3-08709-do-user-14592966-0.b.db.ondigitalocean.com',
-  'port': '25060',
-  'database': 'defaultdb',
-  'ssl_disabled': 'True',
-}
-
-# Connect to the database
-db = mysql.connector.connect(**config)
+# # Don't forget to close the connection
 
 
+# # Check if the connection was successful
+# if db.is_connected():
+#     print("Connected to the database")
+#     cursor = db.cursor()
+#     cursor.execute("SHOW TABLES")
 
-# Don't forget to close the connection
+#     tables = cursor.fetchall()
 
-
-# Check if the connection was successful
-if db.is_connected():
-    print("Connected to the database")
-    cursor = db.cursor()
-    cursor.execute("SHOW TABLES")
-
-    tables = cursor.fetchall()
-
-    for table in tables:
-        print(table[0])
+#     for table in tables:
+#         print(table[0])
 
 
-# Check if the connection was successful
-if db.is_connected():
-    print("Connected to the database")
+# # Check if the connection was successful
+# if db.is_connected():
+#     print("Connected to the database")
 
 
 # from blueprint.transaction import transaction
 app = Flask(__name__, template_folder='templates', static_folder='static')
+app.config['MYSQL_DATABASE_USER'] = 'he'
+app.config['MYSQL_DATABASE_PASSWORD'] = 'AVNS_YbysylwEM8xq2ycbVfl'
+app.config['MYSQL_DATABASE_DB'] = 'defaultdb'
+app.config['MYSQL_DATABASE_HOST'] = 'db-mysql-nyc3-08709-do-user-14592966-0.b.db.ondigitalocean.com'
+app.config['MYSQL_DATABASE_PORT'] = 25060
+mysql.init_app(app)
 
 app.register_blueprint(item)
 @app.route('/record_transaction', methods=['GET'])
@@ -75,11 +84,44 @@ def health_check():
 
 
 @app.route('/my_table')
-def view_my_table():    
+def view_my_table():
+    conn = mysql.connect()
+    cursor = conn.cursor()
     cursor.execute("SELECT * FROM my_table")
     result = cursor.fetchall()
-
+    cursor.close()
+    conn.close()
     return render_template('mytable.html', data=result)
+
+
+@app.route('/insert_data', methods=['GET'])
+def get_insert_data():
+    return render_template('insertdata.html')
+
+@app.route('/insert_data', methods=['POST'])
+def insert_data():
+    # Get the data from the request
+    data = request.json
+    id = data['id']
+    name = data['name']
+
+    # Connect to the database
+    conn = mysql.connect()
+    cursor = conn.cursor()
+
+    # Insert the data into the table
+    query = "INSERT INTO my_table (id, name) VALUES (%s, %s)"
+    values = (id, name)
+    cursor.execute(query, values)
+    conn.commit()
+
+    # Close the database connection
+    cursor.close()
+    conn.close()
+
+    # Return a success message
+    response = {'message': 'Data inserted successfully'}
+    return jsonify(response), 200
 
 
 
