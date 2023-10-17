@@ -1,5 +1,43 @@
 from flask import Flask, request, render_template, jsonify , Blueprint
 from blueprint.item import item
+import mysql.connector
+
+
+
+config = {
+  'user': 'he',
+  'password': 'AVNS_YbysylwEM8xq2ycbVfl',
+  'host': 'db-mysql-nyc3-08709-do-user-14592966-0.b.db.ondigitalocean.com',
+  'port': '25060',
+  'database': 'defaultdb',
+  'ssl_disabled': 'True',
+}
+
+# Connect to the database
+db = mysql.connector.connect(**config)
+
+
+
+# Don't forget to close the connection
+
+
+# Check if the connection was successful
+if db.is_connected():
+    print("Connected to the database")
+    cursor = db.cursor()
+    cursor.execute("SHOW TABLES")
+
+    tables = cursor.fetchall()
+
+    for table in tables:
+        print(table[0])
+
+
+# Check if the connection was successful
+if db.is_connected():
+    print("Connected to the database")
+
+
 # from blueprint.transaction import transaction
 app = Flask(__name__, template_folder='templates', static_folder='static')
 
@@ -31,6 +69,17 @@ def health_check():
     # Add any additional checks to verify the application's health.
     # You can check the database connection, external services, etc.
     return "OK", 200
+
+
+
+@app.route('/my_table')
+def view_my_table():
+    cursor = db.cursor()
+    cursor.execute("SELECT * FROM my_table")
+    result = cursor.fetchall()
+    return render_template('my_table.html', data=result)
+
+
 
 
 if __name__ == '__main__':
