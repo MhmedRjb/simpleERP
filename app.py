@@ -9,11 +9,11 @@ mysql = MySQL()
 
 # from blueprint.transaction import transaction
 app = Flask(__name__, template_folder='templates', static_folder='static')
-app.config['MYSQL_DATABASE_USER'] = 'he'
+app.config['MYSQL_DATABASE_USER'] = os.environ.get('MYSQL_DATABASE_USER')
 app.config['MYSQL_DATABASE_PASSWORD'] = os.environ.get('MYSQL_DATABASE_PASSWORD')
-app.config['MYSQL_DATABASE_DB'] = 'defaultdb'
-app.config['MYSQL_DATABASE_HOST'] = 'db-mysql-nyc3-08709-do-user-14592966-0.b.db.ondigitalocean.com'
-app.config['MYSQL_DATABASE_PORT'] = 25060
+app.config['MYSQL_DATABASE_DB'] = os.environ.get('MYSQL_DATABASE_DB')
+app.config['MYSQL_DATABASE_HOST'] = os.environ.get('MYSQL_DATABASE_HOST')
+app.config['MYSQL_DATABASE_PORT'] = os.environ.get('MYSQL_DATABASE_PORT')
 mysql.init_app(app)
 
 app.register_blueprint(item)
@@ -97,6 +97,4 @@ if __name__ == '__main__':
     app.config['TEMPLATES_AUTO_RELOAD'] = True
     app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
     app.config['JSON_SORT_KEYS'] = False
-    
-    
     app.run(host='0.0.0.0', port=8080, debug=True)

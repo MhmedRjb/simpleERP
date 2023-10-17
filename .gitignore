@@ -7,3 +7,7 @@ __pycache__/
 
 # Other unnecessary files
 .DS_Store
+
+
+# Ignore all .env files in the repo
+```
