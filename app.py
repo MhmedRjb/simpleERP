@@ -74,12 +74,12 @@ def health_check():
 
 
 
-# @app.route('/my_table')
-# def view_my_table():    
-#     cursor.execute("SELECT * FROM my_table")
-#     result = cursor.fetchall()
+@app.route('/my_table')
+def view_my_table():    
+    cursor.execute("SELECT * FROM my_table")
+    result = cursor.fetchall()
 
-#     return render_template('mytable.html', data=result)
+    return render_template('mytable.html', data=result)
 
 
 
