@@ -11,9 +11,9 @@ mysql = MySQL()
 app = Flask(__name__, template_folder='templates', static_folder='static')
 app.config['MYSQL_DATABASE_USER'] = os.environ.get('MYSQL_DATABASE_USER')
 app.config['MYSQL_DATABASE_PASSWORD'] = os.environ.get('MYSQL_DATABASE_PASSWORD')
-app.config['MYSQL_DATABASE_DB'] = os.environ.get('MYSQL_DATABASE_DB')
+app.config['MYSQL_DATABASE_DB'] = 'defaultdb'
 app.config['MYSQL_DATABASE_HOST'] = os.environ.get('MYSQL_DATABASE_HOST')
-app.config['MYSQL_DATABASE_PORT'] = os.environ.get('MYSQL_DATABASE_PORT')
+app.config['MYSQL_DATABASE_PORT'] = 25060
 mysql.init_app(app)
 
 app.register_blueprint(item)
