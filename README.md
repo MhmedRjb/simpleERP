@@ -14,6 +14,7 @@ there is 4 main pahses
 1. account system
 1. POS's
 1. analysis system
+1. clients database 
 
 ![a](https://github.com/MhmedRjb/simpleERP/assets/72052305/81343208-4c54-4725-a6ff-c6ff14772cbe)
 
