@@ -1,21 +1,24 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.css') }}">
         <title>My Table</title>
     </head>
     <body>
-        <table>
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Name</th>
+        <table class="table table-bordered table-striped">
+            <thead class="table-dark">
+                        <tr>
+                    {% for col_name in columns %}
+                        <th>{{ col_name }}</th>
+                    {% endfor %}
                 </tr>
             </thead>
             <tbody>
                 {% for row in data %}
                 <tr>
-                    <td>{{ row[0] }}</td>
-                    <td>{{ row[1] }}</td>
+                    {% for cell in row %}
+                        <td>{{ cell }}</td>
+                    {% endfor %}
                 </tr>
                 {% endfor %}
             </tbody>
