@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/header.css') }}">
+    <title>My Table</title>
+</head>
+<body>
+    <!-- Header Section -->
+    <div class="main-header">
+        <header id="mainHeader">
+            <div>
+                <h1>اسم الشركة</h1>
+                <h5>منذ 1990</h5>
+            </div>
+        </header>
+        <nav id="mainnav">
+            <ul>
+                <li><a href="/comapny_name/main/Inventory/">المخازن</a></li>
+                <li><a href="/comapny_name/main">رفع الملفات</a></li>
+                <li><a href="/authorization">التعريف</a></li>
+            </ul>
+        </nav>
+        <nav id="submainNavcards">
+            <ul>
+                <li><a href="/comapny_name/main/reports/clinets_statistics">احصائيات العميل</a></li>
+                <li><a href="/comapny_name/main/reports/genral_statistics">احصائيات الشهر</a></li>
+                <li><a href="/comapny_name/main/reports/cashflow/display_goodstransectionte">التدفقات النقدية</a></li>
+            </ul>
+        </nav>
+    </div>
+
+</body>
+</html>

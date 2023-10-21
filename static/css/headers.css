@@ -1,0 +1,111 @@
+
+
+.main-header
+{
+    display: grid;
+    grid-template-rows: 90px 1.2fr 1fr;
+
+    
+}
+#mainHeader,#mainnav , #submainNavcards {
+    background: #fffef5;
+    color: #02a080;
+    font-size: 20px;
+
+    font-weight: bold;
+    height: 100%;
+    padding: 0.5%  1% 1% 1%;
+    
+
+}
+
+#mainnav ,#submainNavcards{
+    background: #02a080;
+    color: #02a080;
+    padding: 0 0 0 0;
+
+}
+#submainNavcards{
+    background: #98EECC;
+
+}
+
+.main-header h1,
+.main-header h5 {
+    margin: 0;
+    padding: 0;
+    padding-top: 0.3%;
+    padding-bottom: 0.3%;
+    font-style: italic;    
+
+}
+
+/* Styles for the <ul> element inside #mainnav */
+#mainnav ul, #submainNavcards ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    height: 5px;
+    margin-left: 0.2%; /* Align the list items to the right */
+    
+
+  }
+  
+  /* Styles for the <li> elements inside #mainnav */
+  #mainnav li , #submainNavcards li{
+    display: inline-block;
+    margin-right: 7px;
+
+  }
+  
+  /* Styles for the links (<a> elements) inside the <li> elements inside #mainnav */
+  #mainnav li a, #submainNavcards li a {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 2px 10px 20px 10px;
+    border-radius: 5px 5px 0 0 ;
+      text-align: center; /* Center the text within the links */
+
+
+  }
+
+  
+  #submainNavcards li a {
+    padding: 4px 10px 5px 5px;
+    border-radius: 5px 5px 5px 5px ;
+    color: #02a080;
+
+
+  }
+  /* Styles for the active <li> element inside #mainnav */
+  #mainnav li.active a {
+    background-color: #98EECC;
+    color: #ffffff;
+
+    
+  }
+  #submainNavcards li.active a{
+    background-color: #98EECC;
+    color: #ffffff;
+  }
+
+
+  #mainnav li a:hover {
+    background-color: #98EECC;
+    padding: 10px 20px 20px ;
+
+  }
+
+  #submainNavcards li a:hover {
+    background-color: #02a080;
+    color: #ffffff;
+    padding: 4px 10px 5px 5px;
+
+  }
+  
+footer {
+    color: #02a080;
+    height: 100%;
+    text-align: center;
+}
+
