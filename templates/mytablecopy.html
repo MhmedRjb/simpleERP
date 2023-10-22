@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+  <title>My Table</title>
+</head>
+<body>
+    <div class="container-fluid ">
+
+
+      {% include 'navbar.html' %}
+
+
+
+      <input id='myInput' onkeyup='searchTable()' type='text'>
+      <input id='myInput2' onkeyup='searchTable2()' type='text'>
+      
+      
+      <table class="table table-bordered table-striped  table-hover" id="myTable">
+        <thead class="table-dark">
+      <tr>
+        {% for col_name in columns %}
+        <th>{{ col_name }}</th>
+        {% endfor %}
+      </tr>
+    </thead>
+    <tbody>
+      {% for row in data %}
+      <tr>
+        {% for cell in row %}
+        <td>{{ cell }}</td>
+        {% endfor %}
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+
+  <nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+      <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+      <li class="page-item"><a class="page-link" href="#">1</a></li>
+      <li class="page-item"><a class="page-link" href="#">2</a></li>
+      <li class="page-item"><a class="page-link" href="#">3</a></li>
+      <li class="page-item"><a class="page-link" href="#">Next</a></li>
+    </ul>
+  </nav>
+  
+</div>
+<script>
+  function searchTable() {
+      var input, filter, found, table, tr, td, i, j;
+      input = document.getElementById("myInput");
+      filter = input.value.toUpperCase();
+      table = document.getElementById("myTable");
+      tr = table.getElementsByTagName("tr");
+      
+      // Get the first row (table header)
+      var headerRow = table.rows[0];
+      
+      for (i = 1; i < tr.length; i++) { // Start from index 1 to skip the header row
+          td = tr[i].getElementsByTagName("td");
+          found = false; // Initialize found to false for each row
+          
+          for (j = 0; j < td.length; j++) {
+              if (td[j].innerHTML.toUpperCase().indexOf(filter) > -1) {
+                  found = true;
+                  break; // Exit the inner loop if a match is found
+              }
+          }
+          
+          if (found) {
+              tr[i].style.display = "";
+          } else {
+              tr[i].style.display = "none";
+          }
+      }
+      
+      // Display the table header
+      headerRow.style.display = "";
+  }
+  
+  function searchTable2() {
+      var input, filter, found, table, tr, td, i, j;
+      input = document.getElementById("myInput2");
+      filter = input.value.toUpperCase();
+      table = document.getElementById("myTable");
+      tr = table.getElementsByTagName("tr");
+      
+      // Get the first row (table header)
+      var headerRow = table.rows[0];
+      
+      for (i = 1; i < tr.length; i++) { // Start from index 1 to skip the header row
+          td = tr[i].getElementsByTagName("td");
+          found = false; // Initialize found to false for each row
+          
+          for (j = 0; j < td.length; j++) {
+              if (td[j].innerHTML.toUpperCase().indexOf(filter) > -1) {
+                  found = true;
+                  break; // Exit the inner loop if a match is found
+              }
+          }
+          
+          if (found) {
+              tr[i].style.display = "";
+          } else {
+              tr[i].style.display = "none";
+          }
+      }
+      
+      // Display the table header
+      headerRow.style.display = "";
+  }
+  </script>
+          
+  
+</body>
+</html>
+
