@@ -2,7 +2,6 @@ from flask import Flask, request, render_template, jsonify , Blueprint
 from blueprint.item import item
 from blueprint.transaction import transaction
 from blueprint.main.clients import clients
-
 import mysql.connector
 from Config import dbConfig
 from flaskext.mysql import MySQL
